@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
+
+  <meta charset="UTF-8">
+  <title>게시글 리스트 페이지</title>
+</head>
+<style>
+
+     .layout{
+        width : 500px;
+        margin : 0 auto;
+        margin-top : 40px;
+    }
+
+</style>
+  <body>
+    <div th:replace="fragments/bodyHeader :: bodyHeader" />
+      <div class = "layout">
+        <table>
+
+          <thead>
+          <tr>
+            <th>글번호</th>
+            <th>제목</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <tr th:each="board : ${list}">
+            <td th:text="${board.id}"></td>
+            <td>
+              <a th:text="${board.title}"th:href="@{/board/list(id=${board.id})}"></a>
+            </td>
+          </tr>
+          </tbody>
+
+        </table>
+        </form>
+      </div>
+    <div th:replace="fragments/footer :: footer" />
+  </body>
+</html>
